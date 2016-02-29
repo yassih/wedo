@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: 1
+  date_completed: 2016-02-29
+  priority: MyString
+
+two:
+  name: MyString
+  quantity: 1
+  date_completed: 2016-02-29
+  priority: MyString

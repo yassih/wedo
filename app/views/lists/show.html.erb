@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+
+<p>
+  <strong>Date completed:</strong>
+  <%= @list.date_completed %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @list.due_date %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

@@ -2,13 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :quantity %>
-    <%= f.input :date_completed %>
-    <%= f.input :priority %>
+  	<div class="items">
+    	<%= f.input :name , label: "Items"%>
+	</div>
+    <%= f.hidden_field :quantity %>
+    <%= f.select :priority ,['low priority','medium priority','high priority'],{:include_blank => 'Priority'} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+ <ul class="list-group">
+</ul>
+    <!-- f.button :submit -->
+  
 <% end %>

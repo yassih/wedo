@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
+<h1>Categories</h1>
 
 <% @categories.each do |category| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= category.name %></h3>
+      <h3 class="panel-title"><%= link_to category.name , lists_path %></h3>
     </div>
     <div class="panel-body">
       <%= link_to 'Show', category %>
@@ -14,6 +14,8 @@
     </div>
   </div>
 <% end %>
-
-
 <%= link_to 'New Category', new_category_path %>
+
+<%= render 'lists/lists' %>
+
+

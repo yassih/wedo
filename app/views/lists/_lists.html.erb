@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Lists</h1>
+<%= link_to  new_list_path do %>
+<i class="glyphicon glyphicon-plus">Add New List</i>
+<% end %>
 
 <% @lists.each do |list| %>
   <div class="panel panel-default">
@@ -21,5 +24,3 @@
 
 
   
-
-<%= link_to 'New List', new_list_path %>

@@ -14,7 +14,9 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @items = Item.where(:list_id => params[:id])
     @item = Item.new
+    @item.list_id = params[:id]
   end
 
   # GET /items/1/edit
@@ -25,11 +27,11 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        # @listId = @item.list_id;
+        format.html { redirect_to :action => "new", :id => @item.list_id }
+        format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -54,9 +56,10 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @listId = @item.list_id;
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to :action => "new",:id => @listId, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :quantity, :date_completed, :priority, :list_id)
+      params.require(:item).permit(:name, :priority, :list_id)
     end
 end

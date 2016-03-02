@@ -6,7 +6,6 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @items = Item.all
-
   end
 
   # GET /lists/1
@@ -18,6 +17,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
     @item = Item.new
+    @categories = Category.all
   end
 
   # GET /lists/1/edit
@@ -31,7 +31,7 @@ class ListsController < ApplicationController
 
     respond_to do |format| 
       if @list.save
-        format.html { redirect_to action: 'index', notice: 'List was successfully created.' }
+        format.html { redirect_to :action=>"new", :controller=>"items", :notice=>"Success", id: @list.to_param}
         # format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }

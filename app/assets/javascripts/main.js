@@ -1,15 +1,19 @@
 var items = [];
 
 $(document).ready(function(){
-	$('.form-inputs > .items').keypress(function(event){
+	$('#item_name').focus();
+	$('#item_name').keypress(function(event){
+		return true;
 		if(event.which == 13){
+			event.preventDefault();
 			// regular expression replacing all single spaces with ""
 			if($('#item_name').val().replace(/\s/g, "") === ''){
 				// alert('you need to add an item');
-				return;
+				return false;
 			} 
 			var input = $('#item_name').val();
-			items.push(input);
+			var priority = $('#priority_list').val();
+			items.push({'item':input,'priority':priority});
 
 			var myList = $('.list-group');
 			var newItem = $('<li class="list-group-item"></li>');
@@ -24,8 +28,13 @@ $(document).ready(function(){
 					.toggleClass('glyphicon-check');
 			 });
 
+			$('#item_name').focus();
+			
+			return false;
+
 		}
 
 	});
 });
+
 

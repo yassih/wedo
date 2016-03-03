@@ -24,6 +24,9 @@ class ListsController < ApplicationController
   def edit
   end
 
+  def basicCal
+  end
+
   # POST /lists
   # POST /lists.json
   def create

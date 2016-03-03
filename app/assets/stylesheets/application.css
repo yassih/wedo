@@ -34,3 +34,66 @@
 .list{
 	width: 450px;
 }
+
+.left_column{
+	background-image: url('fridge.png');
+	background-size: cover;
+	min-height: 800px;
+}
+/*Styling For Small Skicky Notes and Big Sticky Note*/
+.note{
+	background-image: url('smileynote.png'); 
+	background-size: 80px 80px;
+	background-repeat: no-repeat;
+	width:80px;
+	height:80px;
+	position: absolute;
+	top: 120px;
+    left: 130px;
+    text-align: right;
+}
+.note > a {
+	padding-top: 5px;
+	padding-right: 10px;
+	color: grey;
+}
+.note > a:hover {
+	background-color: transparent;
+}
+.noteHover{
+	background-size: 90px 90px;
+	width:90px;
+	height:90px;
+}
+.overlayDiv {
+	background-image: url('stickynote.png');
+	background-size: 400px;
+    width:400px; 
+    height:400px; 
+    position: fixed;  
+    top: 30%; 
+    left: 50%; 
+    margin-top: -100px; 
+    margin-left: -100px; 
+    z-index: 100;
+    text-align: right;
+    display: none;
+}
+.noteContents{
+	text-align: left;
+	width: 250px;
+	height: 200px;
+	position: fixed;
+	margin-left: 70px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20pt;
+	line-height: 1.5em;
+}
+.closeNote{
+	width: 100%;
+	padding-top: 40px; 
+	padding-right: 80px;
+}
+/*End of Styling For Small Skicky Notes and Big Sticky Note*/

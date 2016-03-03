@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :notes
   resources :categories
   resources :lists
   resources :items

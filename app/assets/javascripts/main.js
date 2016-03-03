@@ -38,3 +38,27 @@ $(document).ready(function(){
 });
 
 
+// ---------Java Script For Fridge Notes-----------
+
+$(document).ready(function(){
+
+	$('.note').on('mouseover', function(){
+		$(this).toggleClass('noteHover');
+	});
+
+	$('.note').on('mouseleave', function(){
+		$(this).toggleClass('noteHover');
+	});
+	
+
+	$('.note').on('mouseover', function(){
+		$('.overlayDiv').fadeIn(200);
+		$('.overlayDiv > .noteContents').html($(this).data('msg'));
+	});
+	$('.note').on('mouseleave', function(){
+		$('.overlayDiv').fadeOut(200);
+	});
+
+});
+
+

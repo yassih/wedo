@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'lists#index'
+  resources :friendships, only: [:create, :destroy, :accept] do
+    member do
+      put :accept
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -27,7 +27,7 @@ html {
 }
 .header {
     border: 3px solid;
-    border-color: #87bb8d;
+    border-color: #979896;
     color: #87bb8d;
     width: 90%;
     padding: 25px;
@@ -37,9 +37,11 @@ html {
 .flex-container {
     display: -webkit-flex;
     display: flex;
+    border: 3px solid;
+    border-color: #979896;
     width: 90%;
     min-height: 500px;
-    background-color: #87bb8d;
+    background-color: rgba(172,221,176,0.9);
     border-radius: 25px;
 }
 

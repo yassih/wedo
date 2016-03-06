@@ -6,8 +6,8 @@ module UsersHelper
 		when "pending"
 			link_to "Cancel Request", friendship_path(current_user.friendship_relation(user)), method: :delete
 		when "requested"
-			link_to "Accept", accept_friendship_path(current_user.friendship_relation(user)), method: :put
-			link_to "Deny", friendship_path(current_user.friendship_relation(user)), method: :delete
+			(link_to "Accept", accept_friendship_path(current_user.friendship_relation(user)), method: :put ) + " " +
+			(link_to "Deny", friendship_path(current_user.friendship_relation(user)), method: :delete)
 		when "not_friends"
 			link_to "Add Friend", friendships_path(user_id: user.id), method: :post
 		end

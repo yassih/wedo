@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  get '/shared_lists/share_the_list' => 'shared_lists#share_the_list'
+  resources :shared_lists
   resources :notes
   resources :categories
   resources :lists
   resources :items
   devise_for :users
   resources :users, only: [:show, :index]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

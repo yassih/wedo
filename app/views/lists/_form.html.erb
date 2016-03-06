@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :due_date %>
+    <%= f.hidden_field :user_id , value: current_user.id %>
     <%= f.collection_select :category_id, @categories, :id, :name, class: "form-control" %>
   </div>
 

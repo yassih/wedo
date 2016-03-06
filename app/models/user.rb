@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
          has_many :friendships, dependent: :destroy
          has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
+         has_many :shared_lists
+         has_many :lists
 
 #   validates :username, presence: true, uniqueness: true
 

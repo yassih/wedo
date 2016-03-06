@@ -1,0 +1,12 @@
+<h1>This is where u get to choose who you share your list with</h1>
+<%= form_for(@shared_list) do |f| %>
+	<%= @list.name %><br/>
+	<%= f.hidden_field :user_id , value: @shared_list.user_id %>
+    <%= f.hidden_field :list_id, value: @shared_list.list_id %><br/>
+	<%= f.collection_select :friend_id, @friends, :id, :email, {:include_blank => 'select a Friend'} %>
+
+	<div class="actions">
+    	<%= f.submit class: 'btn btn-default' %>
+    </div>
+
+<% end %>

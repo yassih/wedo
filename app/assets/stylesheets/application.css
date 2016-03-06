@@ -17,6 +17,10 @@
 
 
 /*navbar style*/
+.panel .panel-default{
+	color: red;
+	background-color: blue;
+}
  .navbar-default {
  	background-image: linear-gradient(to bottom,#000000 0,#39434D 100%);
  }
@@ -98,3 +102,11 @@
 	padding-right: 80px;
 }
 /*End of Styling For Small Skicky Notes and Big Sticky Note*/
+.my_lists {
+	float: left;
+
+}
+.shared_lists {
+	float: left;
+
+}

@@ -1,7 +1,8 @@
 class FriendshipsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_user, only: [:create]
-	before_action :set_friendship, only: [:destroy]
+	before_action :set_friendship, only: [:destroy, :accept]
+
 
 
 	def create
@@ -19,6 +20,7 @@ class FriendshipsController < ApplicationController
 	end
 
 	def accept
+
 		@friendship.accept_friendship
 		respond_to do |format|
 			format.html {redirect_to users_path, notice: "Friendship Accepted"}

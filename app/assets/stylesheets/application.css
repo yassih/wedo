@@ -26,9 +26,10 @@ html {
     font-family: "Lucida Sans", sans-serif;
 }
 .header {
+    background-color: #F9F9F9;
     border: 3px solid;
     border-color: #979896;
-    color: #87bb8d;
+    color: #000;
     width: 90%;
     padding: 25px;
     border-radius: 25px;
@@ -41,7 +42,7 @@ html {
     border-color: #979896;
     width: 90%;
     min-height: 500px;
-    background-color: rgba(172,221,176,0.9);
+    /*background-color: rgba(172,221,176,0.9);*/
     border-radius: 25px;
 }
 
@@ -108,10 +109,10 @@ html {
     padding: 15px;
 }
 /*navbar style*/
-.panel .panel-default{
+/*.panel .panel-default{
 	color: red;
-	background-color: blue;
-}
+	background-color: blue;*/
+/*}*/
  .navbar-default {
  	background-image: linear-gradient(to bottom,#000000 0,#39434D 100%);
  }

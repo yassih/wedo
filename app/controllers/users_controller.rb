@@ -1,6 +1,5 @@
 
 class UsersController < ApplicationController
-
 	before_action :authenticate_user!, only: [:index]
 	before_action :set_user, only: [:show]
 
@@ -27,8 +26,4 @@ class UsersController < ApplicationController
   	def set_user
   		@user = User.find_by(username: params[:id])
   	end
-
-    def sign_in
-    render :layout => false
-    end
 end

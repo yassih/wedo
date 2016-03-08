@@ -17,6 +17,11 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+
+    @items = Item.where(:list_id => params[:id])
+    @item = Item.new
+    @item.list_id = @list.id
+
   end
 
 
@@ -24,11 +29,14 @@ class ListsController < ApplicationController
   def new
     @list = List.new
     @item = Item.new
+    @item.list_id = @list.id
     @categories = Category.all
   end
 
   # GET /lists/1/edit
   def edit
+    @categories = Category.all
+    @items = Item.where(:list_id => params[:id])
   end
 
   def basicCal

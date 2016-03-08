@@ -1,18 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @list.due_date %>
-</p>
+<div class="panel panel-success">
+	<div class="panel-heading">
+	 	<h3 class="panel-title">
+	 		<%= @list.name %> | <%= @list.due_date %> | <%= @list.category.name %>
+	 	</h3>
+	</div>
+	<div class="panel-body">
+		
+		<%= render 'items/form' %>
+		<!-- This would be the existing items -->
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
+	 	<br />
+	 	<div class="list">
+		<ul>
+			<%  @items.each do |item| %>
+				<li class="list-group-item"> <%= item.name %>
+					<%= link_to item, method: :delete do %>
+				<i class="glyphicon glyphicon-trash pull-right"></i>
+				<% end %>
+				</li>
+			<% end %>
+	      </ul>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
 <%= link_to 'Back', lists_path %>
-
 
 
 

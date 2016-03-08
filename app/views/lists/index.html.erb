@@ -3,6 +3,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>My Lists</h1>
+<%= link_to new_list_path do %>
+<i class="glyphicon glyphicon-plus">Make a New List</i><% end %>
 
 <% @lists.each do |list| %>
   <div class="panel panel-<%= list.user.email == current_user.email ? 'success' : 'warning' %>">
@@ -10,8 +12,7 @@
       <h3 class="panel-title"><%= list.name %></h3>
     </div>
     <div class="panel-body">
-
-
+    
 
 <% if list.user.email != current_user.email %>
   Shared by:
@@ -31,6 +32,8 @@
 </div>
 <p> Due Date: 
   <%= list.due_date %><br/>
+  Category:<%= list.category.name %>
+
 </p>
 
     </div>
@@ -38,9 +41,7 @@
 <% end %>
 
 
-<br />
-<%= link_to new_list_path do %>
-<i class="glyphicon glyphicon-plus">Make a New List</i><% end %>
+
 <br />
 
 <h3>Your Calendar</h3>
@@ -50,7 +51,7 @@
 
 <% lists.each do |lists|  %>
   <div>
-    <%= lists.name %>
+    <%= link_to lists.name, lists %>
   </div>
 <% end %>
 

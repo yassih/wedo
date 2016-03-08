@@ -1,8 +1,18 @@
 <h1>Editing List</h1>
 
+
 <%= render 'form' %>
+<br />
 
-
+	<% @items.each do |item| %>
+	<li class="list-group-item">
+		<%= item.name %>
+		<%= link_to item, method: :delete do %>
+			<i class="glyphicon glyphicon-trash pull-right"></i>
+		<% end %>
+	</li>
+	<% end %>
+	<br />
 
 <%= link_to 'Show', @list %> |
 <%= link_to 'Back', lists_path %>

@@ -29,8 +29,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
-        # @listId = @item.list_id;
-        format.html { redirect_to :action => "new", :id => @item.list_id }
+        @listId = @item.list_id;
+        format.html { redirect_to list_path(@listId)  }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :new }
@@ -42,9 +42,10 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    # @items = Item.where(:list_id => params[:id])
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to :action => "update", :id => @listId, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
     @listId = @item.list_id;
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to :action => "new",:id => @listId, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to list_path(@listId) , notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

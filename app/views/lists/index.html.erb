@@ -34,8 +34,6 @@
 </div>
 <p> Due Date: 
   <%= list.due_date %><br/>
-  Category:<%= list.category.name %>
-
 
 </p>
 
@@ -45,10 +43,7 @@
 
 
 
-<br />
-<%= link_to new_list_path do %>
-<i class="glyphicon glyphicon-plus">Make a New List</i><% end %>
-<br />
+
 
 <h3>Your Calendar</h3>
 
@@ -57,7 +52,6 @@
 
 <% lists.each do |lists|  %>
   <div>
-    <%= lists.name %>
     <%= link_to lists.name, lists %>
   </div>
 <% end %>

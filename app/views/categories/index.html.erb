@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<div class="header">
+  <h1>Categories</h1>
+</div>
 <%= link_to new_category_path do %>
 <i class="glyphicon glyphicon-plus">Add New Category</i>
 <% end %>
@@ -18,7 +20,7 @@
   </div>
 <% end %>
 
-
-<%= render 'lists/lists' %>
+<%= link_to "Back to Lists" , lists_path %>
+<!-- render 'lists/lists' -->
 
 

@@ -18,7 +18,11 @@
     color: #ffffff;
     text-align: center;
     font-size: 12px;
-    padding: 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:0;
+
 }
 
 .session_header {
@@ -28,4 +32,9 @@
     text_align: center;
     padding: 5px;
     border-radius: 40px;
+}
+
+.background_css {
+	background-size: cover;
+  background-repeat: no-repeat;
 }

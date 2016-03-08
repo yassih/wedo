@@ -1,12 +1,15 @@
 <h1>New Item</h1>
 
+
 <%= render 'form' %>
 	<div class="list">
 	<ul>
 		<%  @items.each do |item| %>
 		<li class="list-group-item"> <%= item.name %>
-			<%= link_to item, method: :delete do %>
-			<i class="glyphicon glyphicon-trash pull-right"></i>
+			
+				<%= link_to item, method: :delete do %>
+				<i class="glyphicon glyphicon-trash pull-right"></i>
+	
 			<% end %>
 		</li>
 
@@ -14,4 +17,5 @@
 	</ul>
 </div>
 <%= link_to 'Back to lists', lists_path %>
+
 

@@ -10,6 +10,10 @@ class SharedListsController < ApplicationController
   def new
   end
 
+  def show
+  
+  end
+
   
 
   def share_the_list

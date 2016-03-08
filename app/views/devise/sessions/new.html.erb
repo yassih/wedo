@@ -1,17 +1,14 @@
+
 <% content_for :head do  %>
 <% stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
 
 <style>
 body{
-  background-image: url(/assets/splash.jpg);
+  background-image: url(/assets/splash.jpg);;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
-<center>
-<div class="session_header">
-<h1>Welcome to WeDo!</h1>
-</div>
-</center>
 <div class="log_in_container">
   <h2>Log in</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,11 +19,9 @@ body{
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %> <%= link_to "Sign Up", new_user_registration_path %>
+    <%= f.button :submit, "Log in" %>
+<%= link_to "Sign Up", new_user_registration_path %>
   </div>
-<div class="sign_up">
-
-</div>
 <% end %>
 </div>
 <div class="footer">

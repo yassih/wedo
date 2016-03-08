@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Shared Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Friend</th>
+      <th>List</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shared_lists.each do |shared_list| %>
+      <tr>
+        <td><%= shared_list.user_id %></td>
+        <td><%= shared_list.friend_id %></td>
+        <td><%= shared_list.list_id %></td>
+        <td><%= link_to 'Show', shared_list %></td>
+        <td><%= link_to 'Edit', edit_shared_list_path(shared_list) %></td>
+        <td><%= link_to 'Destroy', shared_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shared list', new_shared_list_path %>

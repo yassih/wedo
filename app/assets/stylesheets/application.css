@@ -15,8 +15,104 @@
  *= require_self
  */
 
+ /*page styling*/
 
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #C2EAC5;
+    border: 3px solid;
+    border-color: #979896;
+    color: #000;
+    width: 90%;
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    border: 3px solid;
+    border-color: #979896;
+    width: 90%;
+    min-height: 500px;
+    /*background-color: rgba(172,221,176,0.9);*/
+    border-radius: 25px;
+}
+
+.first-item {
+	width: 20%;
+}
+.first-item ul {
+	list-style-type: none;
+	margin-top: 15px;
+}
+.first-item ul li {
+	margin-top: 20px;
+}
+
+.second-item {
+	width: 60%;
+}
+.third-item {
+	width: 20%;
+}
+.btn-default {
+	background-color: #fff;
+	width: 100px;
+
+}
+
+.btn-default li a:hover {
+	color: red;
+	width: 100px;
+	
+}
+/*.flex-item {
+    background-color: #87bb8d;
+    width: 30%;
+    margin: 10px;
+}*/
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color :#87bb8d;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #87bb8d;
+}
+.aside {
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+}
+.footer {
+    background-color: #87bb8d;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
 /*navbar style*/
+/*.panel .panel-default{
+	color: red;
+	background-color: blue;*/
+/*}*/
  .navbar-default {
  	background-image: linear-gradient(to bottom,#000000 0,#39434D 100%);
  }
@@ -38,8 +134,9 @@
 
 .left_column{
 	background-image: url('fridge.png');
-	background-size: cover;
+	background-size: auto;
 	min-height: 800px;
+	background-repeat: no-repeat;
 }
 /*Styling For Small Skicky Notes and Big Sticky Note*/
 .note{
@@ -98,3 +195,16 @@
 	padding-right: 80px;
 }
 /*End of Styling For Small Skicky Notes and Big Sticky Note*/
+.my_lists {
+	float: left;
+
+}
+.shared_lists {
+	float: left;
+
+}
+
+.share {
+	width: 50%;
+	height: 200px;
+}

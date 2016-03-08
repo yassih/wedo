@@ -1,6 +1,43 @@
-<h1>List of users</h1>
+  	<!DOCTYPE html>
+<html>
+<head>
 
-<% @users.each do |user| %>
-	<p><%= user.email %></p>
-	<% end %>
+</head>
+<body>
+<div class="header">
+	<h1>List of Users</h1>
+</div>
+
+<div class="flex-container">
+	<div class="first-item">
+		<ul>
+			<li><%= link_to "Everyone", users_path, class: "btn btn-default #{'active' unless params[:people]}" %></li>
+			<li><%= link_to "My Friends", users_path(people: "friends"), class: "btn btn-default#{'active' unless params[:people] == 'friends'}" %></li>
+			<li><%= link_to "Requests", users_path(people: "requests"), class: "btn btn-default#{'active' if params[:people] == 'requests'}" %></li>
+			<li><%= link_to "Pending", users_path(people: "pending"), class: "btn btn-default #{'active' if params[:people] == 'pending'}" %></li>
+		</ul>
+	</div>
+
+	<div class="second-item">
+		<h1>Share Your To Do Lists!!</h1>
+		<p>It's easy!! Share your to do list with family and friends. Request friends and swap lists. Now, there is no excuse for not getting things done. Great way to communicate with family members and friends. Use it for vacations, parties, chores, camping trips etc.</p>
+		
+	</div>
+
+	<div class="third-item">
+		<div class="aside">
+			<h2>Users</h2>
+			<p><%= render @users %></p>
+		</div>
+	</div>
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
 

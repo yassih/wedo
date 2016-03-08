@@ -1,17 +1,24 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index]
+
+
 
   # GET /lists
   # GET /lists.json
   def index
     @lists = List.all
-    @items = Item.all
+      if(current_user)
+      @shared_lists = SharedList.where(friend_id: current_user.id).map(&:list)
+      end
+    #@items = Item.all
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
   end
+
 
   # GET /lists/new
   def new
@@ -75,6 +82,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :due_date, :category_id)
+      params.require(:list).permit(:name, :due_date, :category_id, :user_id)
     end
 end

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<%= yield :head %>
 <head>
+
   <title>Wedo</title>
   <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,9 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user %>
 <%= render 'layouts/header' %>
-
 
 
 <!-- the next line is where the Big yellow skicky note pops up -->
@@ -28,7 +29,10 @@
 	</div>
 </div>
 
+<div class="footer">
+<p>Wedo - Lifes To Do List App &#169 Tech Talent South</p>
+</div>
 
-
+<% end %>
 </body>
 </html>

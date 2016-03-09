@@ -8,8 +8,11 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all
+
       if(current_user)
-      @shared_lists = SharedList.where(friend_id: current_user.id).map(&:list)
+      @shared_lists = SharedList.all
+      #where(friend_id: current_user.id).map(&:list)
+      # @filtered_list = SharedList.where(list_id: @lists.id)
       end
     #@items = Item.all
   end
@@ -75,7 +78,16 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
+    @shared_lists = ShareList.all
     @list.destroy
+    @list.items.each do |item|
+        item.destroy
+      end
+    @shared_lists.each do |shared|
+      if shared.list_id == @list.id
+        shared.destroy
+      end
+    end
     respond_to do |format|
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }

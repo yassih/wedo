@@ -9,11 +9,11 @@
 		<div class="panel-body">
 			<%= f.hidden_field :user_id , value: @shared_list.user_id %>
 		    <%= f.hidden_field :list_id, value: @shared_list.list_id %>
-		    <%= f.collection_select :friend_id, @friends, :id, :email, {:include_blank => 'select a Friend'} %><br />
+		    <%= f.collection_select :friend_id, @friends, :id, :email, {:include_blank => 'select a Friend'} ,class: 'form-group'%><br />
 		</div>
 		<div class="action">
 		  <!-- f.submit class: 'btn btn-default'  -->
-		    <input type="submit" name="commit" value="Share The List" class="btn btn-default" style="margin-left: 20px;
+		    <input type="submit" name="commit" value="Share " class="btn btn-default" style="margin-left: 20px;
     margin-bottom: 15px;
 ">
 		</div>

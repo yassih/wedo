@@ -26,24 +26,28 @@ html {
     font-family: "Lucida Sans", sans-serif;
 }
 .header {
-    background-color: #F9F9F9;
-    border: 3px solid;
-    border-color: #979896;
+    background-color: #87bb8d;
+    /*border: 3px solid;*/
+    /*border-color: #979896;*/
     color: #000;
-    width: 90%;
-    padding: 25px;
-    border-radius: 25px;
+    height: 90px;
+    width: 92.5%;
+    padding: 5px 25px 25px 25px;
+    /*border-radius: 25px;*/
+    margin-top: 65px;
     margin-bottom: 25px;
+    text-align: center;
 }
 .flex-container {
     display: -webkit-flex;
     display: flex;
     border: 3px solid;
     border-color: #979896;
-    width: 90%;
-    min-height: 500px;
-    /*background-color: rgba(172,221,176,0.9);*/
+    width: 92.5%;
+    min-height: 350px;
+    background-color: #87bb8d;
     border-radius: 25px;
+    margin-top: 50px;
 }
 
 .first-item {
@@ -58,7 +62,17 @@ html {
 }
 
 .second-item {
-	width: 60%;
+    
+    width: 60%;
+    text-align: center;
+}
+
+.second-item p {
+    font-size: 14px;
+    line-height: 1.8;
+    
+}
+
 }
 .third-item {
 	width: 20%;
@@ -89,7 +103,7 @@ html {
     padding: 8px;
     margin-bottom: 7px;
     background-color :#87bb8d;
-    color: #ffffff;
+    color: #000;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .menu li:hover {
@@ -97,16 +111,18 @@ html {
 }
 .aside {
     padding: 15px;
-    color: #ffffff;
+    color: #000;
     text-align: center;
     font-size: 14px;
+
 }
 .footer {
     background-color: #87bb8d;
-    color: #ffffff;
+    color: #000;
     text-align: center;
-    font-size: 12px;
-    padding: 15px;
+    font-size: 14px;
+    padding: 30px 15px 15px 15px;
+    height: 75px;
 }
 /*navbar style*/
 /*.panel .panel-default{

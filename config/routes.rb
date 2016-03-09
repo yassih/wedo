@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'calendar/index' => 'calendar#index'
+
   get '/shared_lists/share_the_list' => 'shared_lists#share_the_list'
   resources :shared_lists
   resources :notes

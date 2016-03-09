@@ -1,0 +1,15 @@
+<div class="header">
+  <h1>Your Calendar</h1>
+</div>
+
+
+<%= month_calendar events: @lists do |date, lists| %>
+<%= date %>
+
+<% lists.each do |lists|  %>
+  <div>
+    <%= link_to lists.name, lists %>
+  </div>
+<% end %>
+
+<% end %>

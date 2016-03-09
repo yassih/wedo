@@ -1,17 +1,23 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.error_notification %>
+<% if current_user.email == @list.user.email%>
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-  	<div class="items">
-    	<%= f.input :name , label: "Items"%>
-	</div>
-	<%= f.hidden_field :list_id %>
-    <%= f.hidden_field :quantity %>
-    <%= f.select :priority ,['low priority','medium priority','high priority'],{:include_blank => 'Priority'} %>
-  </div>
 
- <ul class="list-group">
-</ul>
-    <%= f.button :submit %> 
-  
+
+
+          <div class="form-inputs">
+          	<div class="items">
+            	<%= f.input :name , label: "Items"%>
+        	</div>
+        	<%= f.hidden_field :list_id %>
+            <%= f.hidden_field :quantity %>
+            <%= f.select :priority ,['low priority','medium priority','high priority'],{:include_blank => 'Priority'} %>
+          </div>
+
+         <ul class="list-group">
+        </ul>
+            <%= f.button :submit %> 
+
+      <% end %>
+    
 <% end %>

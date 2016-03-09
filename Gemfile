@@ -43,11 +43,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-  gem 'simple_form'
-  gem 'devise','~>4.0.0.rc1'
-  gem 'tzinfo-data'
-  gem "simple_calendar", "~> 2.0"
   # link to simple_calendar docs https://github.com/excid3/simple_calendar
 end
 
@@ -56,3 +51,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+  gem 'simple_form'
+  gem 'devise','~>4.0.0.rc1'
+  gem 'tzinfo-data'
+  gem "simple_calendar", "~> 2.0"

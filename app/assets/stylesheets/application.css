@@ -155,7 +155,7 @@ html {
 }
 /*Styling For Small Skicky Notes and Big Sticky Note*/
 .note{
-	background-image: url('smileynote.png'); 
+	background-image: url('smileynote-47601aca00cbc3b8e8860f3220d5c2d2cb0663aaadfd9f739016b4d0f0b5121d.png'); 
 	background-size: 80px 80px;
 	background-repeat: no-repeat;
 	width:80px;
@@ -179,7 +179,7 @@ html {
 	height:90px;
 }
 .overlayDiv {
-	background-image: url('stickynote.png');
+	background-image: url('stickynote-5aaee34d439cf1b81aa1aa980623e5b349656e9f2eed17288fd77929bd89240b.png');
 	background-size: 400px;
     width:400px; 
     height:400px; 

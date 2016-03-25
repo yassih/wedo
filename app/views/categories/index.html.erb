@@ -1,27 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<div class="header">
-  <h1>Categories</h1>
+<div class="col-md-12">
+  <div class="well well-lg">Categories</div>
 </div>
-<%= link_to new_category_path do %>
-<i class="glyphicon glyphicon-plus">Add New Category</i>
-<% end %>
-
-<% @categories.each do |category| %>
-  <div class="panel panel-default">
+<div class="col-md-6">
+  <% @categories.each do |category| %>
+  <div class="panel panel-success">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= link_to category.name , lists_path %></h3>
-    </div>
-    <div class="panel-body">
-      <%= link_to 'Show', category %>
-      <%= link_to 'Edit', edit_category_path(category) %>
-      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <h3 class="panel-title"><%= link_to category.name , lists_path %>
+        <%= link_to category,method: :delete ,data: { confirm: 'Are you sure?' } do %><i class="glyphicon glyphicon-trash pull-right"></i><% end %>
+      </h3>
     </div>
   </div>
-<% end %>
-
+  <% end %>
 <br />
-<%= link_to "Back to Lists" , lists_path %>
-<!-- render 'lists/lists' -->
+
+<div class="panel panel-success">
+  <div class="panel-body">
+    <%= render 'form', :locals => { :category => @category=Category.new } %>
+    <%= link_to "Back to Lists" , lists_path %>
+  </div>
+</div>
 
 

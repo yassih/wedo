@@ -80,9 +80,7 @@ html {
 	width: 20%;
 }
 .btn-default {
-	background-color: #fff;
-	width: 100px;
-
+	/*color:red;*/
 }
 
 .btn-default li a:hover {
@@ -227,4 +225,11 @@ html {
 .share {
 	width: 50%;
 	height: 200px;
+}
+.well.well-lg{
+    color: #3c763d;
+    background-color: #DFF0D8;
+    border-color: #DFF0D8;
+    font-size: 22px;
+    font-weight: bold;
 }

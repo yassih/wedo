@@ -1,20 +1,5 @@
 
-<% if @count < 9 %>
+
 <%= render 'form' %>
-<% else%>
-
-	
-	
-<div class="panel panel danger">
-  <div class="panel-heading">
-    <h3 class="panel-title">No More Room!</h3>
-  </div>
-  <div class="panel-body">
-    try deleting a few
-  </div>
-</div>
-
-
-<% end %>
 
 <%= link_to 'Back', root_path %>

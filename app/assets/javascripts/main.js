@@ -61,4 +61,11 @@ $(document).ready(function(){
 
 });
 
+window.onload = function()
+{
+	var search = document.getElementById("search");
+	console.log('on load');
+	search.value = "";
+}
+
 

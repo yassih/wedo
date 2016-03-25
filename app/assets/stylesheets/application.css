@@ -72,7 +72,10 @@ html {
     line-height: 1.8;
     
 }
+.selected-button.active{
 
+    font-weight: bolder;
+}   
 .third-item {
 	width: 20%;
 }
@@ -115,6 +118,7 @@ html {
     font-size: 14px;
 
 }
+
 .footer {
     background-color: #87bb8d;
     color: #000;
@@ -152,6 +156,7 @@ html {
 	background-size: auto;
 	min-height: 800px;
 	background-repeat: no-repeat;
+    background-position: contain;
 }
 /*Styling For Small Skicky Notes and Big Sticky Note*/
 .note{

@@ -32,10 +32,11 @@
                 <%= link_to 'Share', shared_lists_share_the_list_path(:list_id => list.id) %>
               </button>
             </div>
-            <p> Due Date: 
-              <%= list.due_date %>
-            </p>
           </div>
+           <div class="panel-footer">
+              Due Date: 
+              <%= list.due_date %>
+            </div>
         </div>
       </div>
   <% end %>

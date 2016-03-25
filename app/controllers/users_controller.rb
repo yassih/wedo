@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     when "pending"
       @users = current_user.pending_friend_request_to
     else
-      @users = User.where.not(id: current_user.id)
+      @users = []
     end
 	end
 

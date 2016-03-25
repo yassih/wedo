@@ -3,34 +3,59 @@
 	<head>
 	</head>
 <body>
-	<div class="header">
-		<h1>List of Users</h1>
-	</div>
 
-<div class="flex-container">
-	<div class="first-item">
-		<ul>
-			<li><%= link_to "Everyone", users_path, class: "btn btn-default #{'active' unless params[:people]}" %></li>
-			<li><%= link_to "My Friends", users_path(people: "friends"), class: "btn btn-default#{'active' unless params[:people] == 'friends'}" %></li>
-			<li><%= link_to "Requests", users_path(people: "requests"), class: "btn btn-default#{'active' if params[:people] == 'requests'}" %></li>
-			<li><%= link_to "Pending", users_path(people: "pending"), class: "btn btn-default #{'active' if params[:people] == 'pending'}" %></li>
-		</ul>
+<div class="panel panel-success">
+	<div class="panel-heading">
+		Who is Where
 	</div>
+</div>
 
-	<div class="second-item">
-		<h1>Share Your To Do Lists!!</h1>
-		<p>It's easy!!  <br>Share your to do list with family and friends.  <br>
-		Request friends and swap lists. 
-		Now, there is no excuse for not getting things done.  <br>Great way to communicate with family members and friends.  <br>Use it for vacations, parties, chores, camping trips etc.</p>
-		
+	<!-- --Buttons to toggle through friends requests and all -->
+<div class="col-md-4">
+	<div class="panel panel-success">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Status</h3>
+	  </div>
+	  <div class="panel-body">
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default">
+				<%= link_to "Friends", users_path(people: "friends"), class: "selected-button#{' active' if params[:people] == 'friends'}" %>
+			</button>
+			<button type="button" class="btn btn-default">
+				<%= link_to "Requests", users_path(people: "requests"), class: "selected-button#{' active' if params[:people] == 'requests'}" %>
+			</button>
+			<button type="button" class="btn btn-default">
+				<%= link_to "Pending", users_path(people: "pending"), class: "selected-button #{' active' if params[:people] == 'pending'}" %>
+			</button>
+		</div>
+
+	  </div>
 	</div>
+</div>
 
-	<div class="third-item">
-		<div class="aside">
+
+<div class="col-md-3">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Search</h3>
+			</div>
+			<div class="panel-body">
+
 			<%= form_tag(users_path, :method => "get", id: "search-form") do %>
 				<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
-				<%= submit_tag "Search" %>
-			<% end %>
+				<%= submit_tag "Search", class: "btn btn-default"%>
+				<% end %>
+				
+		</div>
+	</div>
+</div>
+<div class="col-md-5">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+		<h3 class="panel-title">Results</h3>
+		</div>
+		<div class="panel-body" id="results">
+			<%= render @users %>
 			<% if params[:search].present?%>
 				<% if @searched_users.present? %>
 					<%= render @searched_users %>
@@ -38,10 +63,14 @@
 					<p>No users here <%= params[:search] %>.</p>
 				<% end %>
 			<% end %>
+			
 		</div>
 	</div>
 </div>
-<br/>
+
+
+
+
 
 
 

@@ -2,69 +2,78 @@
 <p id="notice"><%= notice %></p>
 
 <div class="header">
-  <h1>My Lists</h1>
+  <h1>Lists</h1>
 </div>
-
+  <!-- <div class="alert alert-success" role="alert">
+    <a href="#" class="alert-link"> Lists</a>
+  </div> -->
 <%= link_to new_list_path do %>
   <i class="glyphicon glyphicon-plus">Make a New List</i>
 <% end %>
-<!-- Listing Users Lists -->
-<% @lists.each do |list| %>
-  <% if  current_user.email == list.user.email  %>
-    <div class="panel panel-<%= list.user.email == current_user.email ? 'success' : 'warning' %>">
-      <div class="panel-heading">
-      <h3 class="panel-title"> <%= list.name  %> | <%=  list.category.name %> </h3> 
-      </div>
-    <div class="panel-body">
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default">
-          <%= link_to 'Show', list %>
-        </button>
-        <button type="button" class="btn btn-default">
-          <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </button>
-        <button type="button" class="btn btn-default">
-          <%= link_to 'Share', shared_lists_share_the_list_path(:list_id => list.id) %>
-        </button>
-      </div>
-      <p> Due Date: 
-        <%= list.due_date %><br/>
-      </p>
-    </div>
-  </div>
-  <% end %>
-<% end %>
-<!-- Listing Shared Lists -->
-<% @shared_lists.each do |slist|%>
-  <%  if current_user.id == slist.friend_id %>
-      <div class="panel panel-<%= slist.user.email == current_user.email ? 'success' : 'warning' %>">
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= slist.list.name %></h3>
-        </div>
-        <div class="panel-body">
-          <% slist.list.items.each %>
-          <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default">
-              <%= link_to 'View', list_path(slist) %> 
-            </button><br />
-            <% if slist.user.email != current_user.email %>
-              <br />Shared by:
-              <strong><%= slist.user.email %></strong>
-            <% end %><br/>
+
+
+<!-- Listing Your Own Lists -->
+<div class="row">
+  <% @lists.each do |list| %>
+      <div class="col-md-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+          <h3 class="panel-title"><%= list.name %> | <%=  list.category.name %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default">
+                <%= link_to 'View', list %>
+              </button>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </button>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'Share', shared_lists_share_the_list_path(:list_id => list.id) %>
+              </button>
+            </div>
+            <p> Due Date: 
+              <%= list.due_date %>
+            </p>
           </div>
         </div>
-      </div>         
+      </div>
   <% end %>
-<% end %>
+</div>
+<!-- End of Listing Your Own Lists -->
+
+
+<!-- Listing Shared Lists -->
+<div class="row>">
+  <% @shared_lists.each do |slist|%>
+    <%  if current_user.id == slist.friend_id %>
+      <div class="col-md-4">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= slist.list.name %></h3>
+          </div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default">
+              <%= link_to 'View', list_path(slist) %> 
+              </button><br />
+              <% if slist.user.email != current_user.email %>
+                <br />Shared by:
+                <strong><%= slist.user.email %></strong>
+              <% end %>
+              <br/>
+            </div>
+          </div>
+        </div>  
+      </div>       
+    <% end %>
+  <% end %>
+</div>
 
 
 
-
-<br />
-
-
+<div class="cal">
 <h3>Your Calendar</h3>
-
 <%= month_calendar events: @lists do |date, lists| %>
   <%= date %>
   <% lists.each do |lists|  %>
@@ -75,6 +84,7 @@
     <% end %>
   <% end %>
 <% end %>
+</div>
   
 
 

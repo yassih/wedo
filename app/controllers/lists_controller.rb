@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = List.where(:user_id => current_user.id)
 
       if(current_user)
       @shared_lists = SharedList.all

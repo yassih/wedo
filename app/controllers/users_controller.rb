@@ -5,6 +5,17 @@ class UsersController < ApplicationController
 
 # makes filter buttons work, arbitrary param
 	def index
+    
+    # @searched_users = User.all
+    if params[:search]
+      @searched_users = User.search(params[:search]).order("created_at DESC")
+    else
+      # @searched_users = User.all.order('created_at DESC')
+    end
+
+
+    @users = User.search(params[:search])
+
 		case params[:people]
     when "friends"
       @users = current_user.active_friends

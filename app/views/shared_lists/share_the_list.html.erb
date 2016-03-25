@@ -1,22 +1,21 @@
-<h3>Pick a friend to share your list with</h3>
+<p id="notice"><%= notice %></p>
+<h3>Who do you want to share yous list with?</h3>
 
 <%= form_for(@shared_list) do |f| %>
-
-	<div class="panel panel-success">
-		<div class="panel-heading">
-			<%= @list.name %>
+	<div class="col-md-4">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<%= @list.name %>
+			</div>
+			<div class="panel-body">
+				<%= f.hidden_field :user_id , value: @shared_list.user_id %>
+				<%= f.hidden_field :list_id, value: @shared_list.list_id %>
+				<%= f.collection_select :friend_id, @friends, :id, :email, {:include_blank => 'select a Friend'} ,class: 'form-group'%><br />
+			</div>
+			<div class="action">
+			<!-- f.submit class: 'btn btn-default'  -->
+				<input type="submit" name="commit" value="Share " class="btn btn-default" style="margin-left: 20px; margin-bottom: 15px;">
+			</div>
 		</div>
-		<div class="panel-body">
-			<%= f.hidden_field :user_id , value: @shared_list.user_id %>
-		    <%= f.hidden_field :list_id, value: @shared_list.list_id %>
-		    <%= f.collection_select :friend_id, @friends, :id, :email, {:include_blank => 'select a Friend'} ,class: 'form-group'%><br />
-		</div>
-		<div class="action">
-		  <!-- f.submit class: 'btn btn-default'  -->
-		    <input type="submit" name="commit" value="Share " class="btn btn-default" style="margin-left: 20px;
-    margin-bottom: 15px;
-">
-		</div>
-	</div>
-
+ 	</div>
 <% end %>

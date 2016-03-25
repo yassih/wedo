@@ -8,6 +8,7 @@ class SharedListsController < ApplicationController
   end
 
   def new
+
   end
 
   def show
@@ -30,16 +31,14 @@ class SharedListsController < ApplicationController
   # POST /shared_lists.json
   def create
     @shared_list = SharedList.new(shared_list_params)
-
     respond_to do |format|
       if @shared_list.save
         format.html { redirect_to root_path, notice: 'Your list was shared' }
       else
-        format.html { render :new }
+        format.html { redirect_to shared_lists_share_the_list_path(:list_id => @shared_list.list_id), notice: 'You have already shared this list with this user' }
       end
     end
   end
-
   # PATCH/PUT /shared_lists/1
   # PATCH/PUT /shared_lists/1.json
   def update

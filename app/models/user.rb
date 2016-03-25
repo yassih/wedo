@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
 
 #   validates :username, presence: true, uniqueness: true
 
+	def self.search(search)
+  		where("email LIKE ?", "%#{search}%") 
+  		# where("content LIKE ?", "%#{search}%")
+	end
+
+
 	def request_friendship(user_2)
 		self.friendships.create(friend: user_2)
 	end

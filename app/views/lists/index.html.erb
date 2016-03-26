@@ -1,12 +1,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="header">
-  <h1>Lists</h1>
+<div class="alert alert-success" role="alert">
+  Lists
 </div>
-  <!-- <div class="alert alert-success" role="alert">
-    <a href="#" class="alert-link"> Lists</a>
-  </div> -->
 <%= link_to new_list_path do %>
   <i class="glyphicon glyphicon-plus">Make a New List</i>
 <% end %>
@@ -15,28 +12,23 @@
 <!-- Listing Your Own Lists -->
 <div class="row">
   <% @lists.each do |list| %>
+
+
+
       <div class="col-md-4">
         <div class="panel panel-success">
           <div class="panel-heading">
-          <h3 class="panel-title"><%= list.name %> | <%=  list.category.name %></h3>
+          <h3 class="panel-title">
+            <%=link_to list.name, list %> | <%=  list.category.name %>
+            <%= link_to "Share", shared_lists_share_the_list_path(:list_id => list.id)%>
+            <%= link_to list,method: :delete ,data: { confirm: 'Are you sure?' } do %><i class="glyphicon glyphicon-trash pull-right"></i><% end %>
+          </h3>
           </div>
           <div class="panel-body">
             <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default">
-                <%= link_to 'View', list %>
-              </button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Share', shared_lists_share_the_list_path(:list_id => list.id) %>
-              </button>
             </div>
           </div>
-           <div class="panel-footer">
-              Due Date: 
-              <%= list.due_date %>
-            </div>
+              <!--  list.due_date -->
         </div>
       </div>
   <% end %>

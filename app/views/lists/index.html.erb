@@ -4,80 +4,49 @@
 <div class="alert alert-success" role="alert">
   Lists
 </div>
-<%= link_to new_list_path do %>
-  <i class="glyphicon glyphicon-plus">Make a New List</i>
-<% end %>
-
-
-<!-- Listing Your Own Lists -->
-<div class="row">
+<div class="col-md-12">
+  <div class="btn btn-default">
+  <%= link_to new_list_path do %>
+    <i class="glyphicon glyphicon-plus">Create a New List</i>
+  <% end %>
+  </div>
+</div>
+<div class="col-md-6">
   <% @lists.each do |list| %>
-
-
-
-      <div class="col-md-4">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-          <h3 class="panel-title">
-            <%=link_to list.name, list %> | <%=  list.category.name %>
-            <%= link_to "Share", shared_lists_share_the_list_path(:list_id => list.id)%>
-            <%= link_to list,method: :delete ,data: { confirm: 'Are you sure?' } do %><i class="glyphicon glyphicon-trash pull-right"></i><% end %>
-          </h3>
-          </div>
-          <div class="panel-body">
-            <div class="btn-group" role="group" aria-label="...">
-            </div>
-          </div>
-              <!--  list.due_date -->
-        </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= link_to list.category.name ,list%> | <%=link_to list.name, list %>
+        <%= link_to "Share", shared_lists_share_the_list_path(:list_id => list.id) ,class: "pull-right"%>
+      </h3>
       </div>
+    </div>
   <% end %>
-</div>
-<!-- End of Listing Your Own Lists -->
-
-
-<!-- Listing Shared Lists -->
-<div class="row>">
-  <% @shared_lists.each do |slist|%>
-    <%  if current_user.id == slist.friend_id %>
-      <div class="col-md-4">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= slist.list.name %></h3>
-          </div>
-          <div class="panel-body">
-            <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default">
-              <%= link_to 'View', list_path(slist) %> 
-              </button><br />
-              <% if slist.user.email != current_user.email %>
-                <br />Shared by:
-                <strong><%= slist.user.email %></strong>
-              <% end %>
-              <br/>
-            </div>
-          </div>
-        </div>  
-      </div>       
-    <% end %>
-  <% end %>
-</div>
-
-
-
-<div class="cal">
-<h3>Your Calendar</h3>
-<%= month_calendar events: @lists do |date, lists| %>
-  <%= date %>
-  <% lists.each do |lists|  %>
-    <% if current_user.id == lists.user_id %>
-      <div>
-        <%= link_to lists.name, lists %>
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <%= render 'form', :locals => {:list => @list=List.new } %>
+        <%= link_to "Back to Lists" , lists_path %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
+
+
+
+<div class="col-md-6">
+  <% @shared_lists.each do |slist| %>
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= link_to slist.list.name ,list_path(slist) %> 
+        <div class="pull-right"> <%= slist.user.email %></div>
+       
+      </h3>
+    </div>
+  </div>
 <% end %>
 </div>
+</div>
+<br/><br/><br/><br/>a
   
 
 

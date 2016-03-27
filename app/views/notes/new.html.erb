@@ -16,8 +16,12 @@
 		<% @notes.each do |note| %>
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 class="panel-title"><%= note.content %>
-					<%= note.created_at.strftime("%d-%m")%></h3>
+					<div class="panel-title">
+						<%= note.content %>
+						<span class='pull-right'>
+							<%= note.created_at.strftime("%d-%b")%>
+						</span>
+					</div>
 				</div>
 			</div>
 		<% end %>

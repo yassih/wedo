@@ -2,14 +2,14 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :destroy]
 
   def index
-    @notes = Note.limit(9)
+    @notes = Note.last(9).reverse
   end
 
   def show
   end
 
   def new
-    @notes = Note.limit(9)
+    @notes = Note.last(9).reverse
     @count = Note.all.length
     @note = Note.new
     @note.user_id = current_user.id

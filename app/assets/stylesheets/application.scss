@@ -68,10 +68,10 @@ html {
 
 
  .navbar-default {
- 	background-image: linear-gradient(to top,#205866 0,$nav-footer-color 80%);
+ 	background-image: linear-gradient(to top,$nav-footer-color 0,$nav-footer-color 80%);
  }
  .footer {
-    background-image: linear-gradient(to top,#205866 0,$nav-footer-color 80%);
+    background-image: linear-gradient(to top,$nav-footer-color 0,$nav-footer-color 80%);
     /*background-color: #877b8d;*/
     color: #fff;
     text-align: center;

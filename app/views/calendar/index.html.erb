@@ -1,15 +1,15 @@
-<div class="header">
-  <h1>Your Calendar</h1>
+<div class="alert alert-success" role="alert">
+  Calendar
 </div>
 
-
-<%= month_calendar events: @lists do |date, lists| %>
-<%= date %>
-
-<% lists.each do |lists|  %>
-  <div>
-    <%= link_to lists.name, lists %>
-  </div>
-<% end %>
-
-<% end %>
+<div class="col-md-12">
+	<%= month_calendar events: @lists do |date, lists| %>
+	<%= date.strftime("%d-%b") %>
+		<% lists.each do |list|  %>
+		
+			<% if list.user.email == current_user.email %>
+				<br/><%= link_to list.name, list %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

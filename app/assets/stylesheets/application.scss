@@ -17,6 +17,7 @@
 
  /*page styling*/
 
+$nav-footer-color: #2e4858;
 
 [class*="col-"] {
     float: left;
@@ -38,61 +39,16 @@ html {
     margin-bottom: 25px;
     text-align: center;
 }
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    border: 3px solid;
-    border-color: #979896;
-    width: 92.5%;
-    min-height: 350px;
-    background-color: #87bb8d;
-    border-radius: 25px;
-    margin-top: 50px;
-}
 
-.first-item {
-	width: 20%;
-}
-.first-item ul {
-	list-style-type: none;
-	margin-top: 15px;
-}
-.first-item ul li {
-	margin-top: 20px;
-}
-
-.second-item {
-    
-    width: 60%;
-    text-align: center;
-}
-
-.second-item p {
-    font-size: 14px;
-    line-height: 1.8;
-    
-}
 .selected-button.active{
 
     font-weight: bolder;
 }   
-.third-item {
-	width: 20%;
-}
-.btn-default {
-	/*color:red;*/
-}
 
 .btn-default li a:hover {
-	color: red;
 	width: 100px;
 	
 }
-/*.flex-item {
-    background-color: #87bb8d;
-    width: 30%;
-    margin: 10px;
-}*/
 
 .menu ul {
     list-style-type: none;
@@ -109,30 +65,20 @@ html {
 .menu li:hover {
     background-color: #87bb8d;
 }
-.aside {
-    padding: 15px;
-    color: #000;
-    text-align: center;
-    font-size: 14px;
 
-}
 
-.footer {
-    background-color: #87bb8d;
-    color: #000;
+ .navbar-default {
+ 	background-image: linear-gradient(to top,#205866 0,$nav-footer-color 80%);
+ }
+ .footer {
+    background-image: linear-gradient(to top,#205866 0,$nav-footer-color 80%);
+    /*background-color: #877b8d;*/
+    color: #fff;
     text-align: center;
     font-size: 14px;
     padding: 30px 15px 15px 15px;
     height: 75px;
 }
-/*navbar style*/
-/*.panel .panel-default{
-	color: red;
-	background-color: blue;*/
-/*}*/
- .navbar-default {
- 	background-image: linear-gradient(to bottom,#000000 0,#39434D 100%);
- }
 
  .navbar-default .navbar-nav>li>a {
  	color: #fff;
@@ -213,23 +159,10 @@ html {
 	padding-right: 80px;
 }
 /*End of Styling For Small Skicky Notes and Big Sticky Note*/
-.my_lists {
-	float: left;
 
-}
-.shared_lists {
-	float: left;
-
-}
 
 .share {
 	width: 50%;
 	height: 200px;
 }
-.well.well-lg{
-    color: #3c763d;
-    background-color: #DFF0D8;
-    border-color: #DFF0D8;
-    font-size: 22px;
-    font-weight: bold;
-}
+

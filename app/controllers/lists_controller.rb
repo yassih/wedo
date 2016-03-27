@@ -35,8 +35,6 @@ class ListsController < ApplicationController
     @items = Item.where(:list_id => params[:id])
   end
 
-  def basicCal
-  end
 
   def create
     @list = List.new(list_params)

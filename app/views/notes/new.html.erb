@@ -1,12 +1,11 @@
 
-
 <div class="alert alert-success" role="alert">
 	Notes
 </div>
 <div class="col-md-6">
 	<div class="panel panel-success">
 		<div class="panel-body">
-		<%= render 'form', :locals => { :note => @note=Note.new } %>
+		<%= render 'form', :locals => { :note => @note} %>
 		<%= link_to "Back to Lists" , lists_path %>
 		</div>
 	</div>
@@ -17,6 +16,7 @@
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<div class="panel-title">
+						<%= note.user_id %> said
 						<%= note.content %>
 						<span class='pull-right'>
 							<%= note.created_at.strftime("%d-%b")%>

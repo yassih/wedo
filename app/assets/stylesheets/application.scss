@@ -26,6 +26,7 @@ $nav-footer-color: #2e4858;
 html {
     font-family: "Lucida Sans", sans-serif;
 }
+
 .header {
     background-color: #87bb8d;
     /*border: 3px solid;*/
@@ -39,7 +40,9 @@ html {
     margin-bottom: 25px;
     text-align: center;
 }
-
+.container-fluid{
+    width:100%;
+}
 .selected-button.active{
 
     font-weight: bolder;
@@ -66,7 +69,9 @@ html {
     background-color: #87bb8d;
 }
 
-
+.nav .navbar .navbar-default {
+    width: 100%;
+}
  .navbar-default {
  	background-image: linear-gradient(to top,$nav-footer-color 0,$nav-footer-color 80%);
  }

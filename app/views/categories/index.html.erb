@@ -4,6 +4,12 @@
   Categories
 </div>
 <div class="col-md-6">
+  <div class="panel panel-success">
+  <div class="panel-body">
+    <%= render 'form', :locals => { :category => @category=Category.new } %>
+    <%= link_to "Back to Lists" , lists_path %>
+  </div>
+</div>
   <% @categories.each do |category| %>
   <div class="panel panel-success">
     <div class="panel-heading">
@@ -15,11 +21,6 @@
   <% end %>
 <br />
 
-<div class="panel panel-success">
-  <div class="panel-body">
-    <%= render 'form', :locals => { :category => @category=Category.new } %>
-    <%= link_to "Back to Lists" , lists_path %>
-  </div>
-</div>
+
 
 

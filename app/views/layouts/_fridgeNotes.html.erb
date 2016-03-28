@@ -10,12 +10,8 @@
 	@notes = Note.last(9).reverse
 	@active_notes = []
 %>
-<% @active_notes.each do |n| %>
-<%= n.content %><br />
-<% end %>
-<% @friend_notes = Note.last(9).reverse %>
 
-<%= @friend_notes.length %>...friend_notes
+<% @friend_notes = Note.last(9).reverse %>
 <% @friends = current_user.active_friends %>
   <% @friends.each do |friend| %>
 		<% @friend_notes.each do |friend_note| %>
@@ -26,15 +22,12 @@
   <% end %>
  
 
-
-<%= @notes.length %>...notes
 <% @notes.each_with_index do |note,index| %>
 	<% if current_user.id.to_i == note.user_id.to_i%>
 	<% @active_notes.push(note) %>
 	<% end %>
 <% end %>
 
-<%= @active_notes.length %>...active_notes
 <% @active_notes.each_with_index do |note, index| %>
 	<%= ("<div class='fridge-note note' id='#{note.id}'" + 
 				"style='top:#{tops[index]}px; left:#{lefts[index]}px;' " + 

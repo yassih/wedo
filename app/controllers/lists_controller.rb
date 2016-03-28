@@ -4,14 +4,15 @@ class ListsController < ApplicationController
 
 
   def index
-    @lists = List.where(:user_id => current_user.id)
-
-      if(current_user)
-      @shared_lists = SharedList.all
-      #where(friend_id: current_user.id).map(&:list)
-      # @filtered_list = SharedList.where(list_id: @lists.id)
-      end
-    #@items = Item.all
+    if params[:category_id].present?
+       @lists = List.where(:category_id => params[:category_id])
+       @shared_lists = List.where(:category_id => params[:category_id])
+    else
+      @lists = List.where(:user_id => current_user.id)
+        if(current_user)
+        @shared_lists = SharedList.all
+        end
+    end
   end
 
   def show
@@ -41,7 +42,7 @@ class ListsController < ApplicationController
 
     respond_to do |format| 
       if @list.save
-        format.html { redirect_to :action=>"new", :controller=>"items", :notice=>"Success", id: @list.to_param}
+        format.html { redirect_to @list, :notice=>"Success", id: @list.to_param}
       else
         format.html { render :new }
       end

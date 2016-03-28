@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="col-md-6">	
 		<div class="panel panel-success">
 			<div class="panel-heading">
@@ -30,7 +29,9 @@
 				<% end %>
 			</div>
 		</div>
-</div>
+		<% if current_user.email == @list.user.email%>
+			<%= link_to "Delete this entire list", @list , method: :delete , data: {confirm: 'Are you sure?'}%>
+		<% end %>
 
 
 <div class="col-md-12">

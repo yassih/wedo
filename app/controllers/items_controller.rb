@@ -18,10 +18,8 @@ class ItemsController < ApplicationController
       if @item.save
         @listId = @item.list_id;
         format.html { redirect_to list_path(@listId)  }
-        format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,7 +31,6 @@ class ItemsController < ApplicationController
     @item.destroy
     respond_to do |format|
       format.html { redirect_to list_path(@listId) , notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

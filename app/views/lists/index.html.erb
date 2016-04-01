@@ -34,8 +34,8 @@
 
 <div class="col-md-6">
   <% @shared_lists.each do |slist| %>
-    <div class="panel panel-warning">
   <% if slist.user.email!= current_user.email %>
+    <div class="panel panel-warning">
       <div class="panel-heading">
         <h3 class="panel-title">
           <%= link_to slist.list.name ,slist %> 
@@ -46,7 +46,7 @@
       </h3>
     </div>
   </div>
-<% end %>
+  <% end %>
 </div>
 </div>
 

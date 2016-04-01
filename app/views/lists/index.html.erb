@@ -4,7 +4,7 @@
 <div class="alert alert-success" role="alert">
   Lists
 </div>
-<div class="col-md-12">
+<div class="col-md-10">
   <div class="btn btn-default">
   <%= link_to new_list_path do %>
     <i class="glyphicon glyphicon-plus">Create a New List</i>
@@ -16,7 +16,7 @@
     <div class="panel panel-success">
       <div class="panel-heading">
       <h3 class="panel-title">
-        <%= link_to list.category.name ,list%> | <%=link_to list.name, list %>
+        <%=link_to list.name, list %>
         <%= link_to "Share", shared_lists_share_the_list_path(:list_id => list.id) ,class: "pull-right"%>
       </h3>
       </div>

@@ -2,7 +2,7 @@
   Calendar
 </div>
 
-<div class="col-md-12">
+<div class="col-md-10">
 	<%= month_calendar events: @lists do |date, lists| %>
 	<%= date.strftime("%d-%b") %>
 		<% lists.each do |list|  %>

@@ -37,8 +37,11 @@
   <div class="panel panel-warning">
     <div class="panel-heading">
       <h3 class="panel-title">
+        <% if slist.user.email!= current_user.email %>
         <%= link_to slist.list.name ,list_path(slist) %> 
-        <div class="pull-right"> <%= slist.user.email %></div>
+        <div class="pull-right"> <%= slist.user.email %>
+        </div>
+        <% end %>
        
       </h3>
     </div>

@@ -33,13 +33,13 @@
 
 
 <div class="col-md-6">
-  <% @shared_lists.each do |slist| %>
-  <% if slist.user.email!= current_user.email %>
+  <% @shared_lists.each do |list| %>
+  <% if list.user.email!= current_user.email %>
     <div class="panel panel-warning">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= link_to slist.list.name ,slist %> 
-          <div class="pull-right"> <%= slist.user.email %>
+          <%= link_to list.list.name ,list %> 
+          <div class="pull-right"> <%= list.user.email %>
           </div>
   <% end %>
        

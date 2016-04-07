@@ -1,4 +1,5 @@
 class SharedListsController < ApplicationController
+  before_action :set_shared_list, only: [:show]
   # before_action :set_shared_list, only: [:share_the_list]
 
   # GET /shared_lists
@@ -12,6 +13,10 @@ class SharedListsController < ApplicationController
   end
 
   def show
+    @items = Item.where(:list_id => params[:id])
+    @item = Item.new
+    @item.list_id = @shared_list.id
+    @list = @shared_list
   
   end
 

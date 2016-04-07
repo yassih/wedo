@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-8">	
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<%= @shared_list.list.name %> | <%= @shared_list.list.due_date %>
+				</h3>
+			</div>
+		<div class="panel-body">
+			<%= render 'items/form' %>
+			<!-- This would be the existing items -->
+			<br/>
+			<div class="list">
+				<ul>
+					<%  @items.each do |item| %>
+					<li class="list-group-item"> <%= item.name %>
+						<% if current_user.email == @shared_list.user.email %>
+							<%= link_to item, method: :delete, data: { confirm: 'Are you sure?' } do %>
+							<i class="glyphicon glyphicon-trash pull-right"></i>
+						<% end %>
+						<% end %>
+					</li>
+					<% end %>
+				</ul>
+				</div>
+				<% if current_user.email != @shared_list.user.email%>
+				This list is shared with you by: <strong><%= @shared_list.user.email %></strong>
+				<br /> 
+				<% end %>
+			</div>
+		</div>
+		<% if current_user.email == @shared_list.user.email%>
+			<%= link_to "Delete this entire list", @shared_list , method: :delete , data: {confirm: 'Are you sure?'}%>
+		<% end %>
+
+
+<div class="col-md-12">
+	<%= link_to 'Back', lists_path %>
+</div>
+
+
+
+

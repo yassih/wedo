@@ -27,6 +27,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    @note.destroy
+    respond_to do |format|
+      format.html { redirect_to lists_url }
+    end
+  end
+
 
   private
     def set_note

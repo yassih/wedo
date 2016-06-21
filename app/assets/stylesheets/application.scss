@@ -16,7 +16,9 @@
  */
 
  /*page styling*/
-
+body{
+    // background-color: red;
+}
 $nav-footer-color: #2e4858;
 
 [class*="col-"] {
@@ -25,6 +27,15 @@ $nav-footer-color: #2e4858;
 }
 html {
     font-family: "Lucida Sans", sans-serif;
+}
+.navbar-default
+{
+    width: 500px;
+}
+.full-width
+{
+    width: 100%;
+    padding-right: 3px;
 }
 
 .header {

@@ -10,31 +10,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-<%= render 'layouts/header' %>
+	<% if current_user %>
+		<%= render 'layouts/header' %>
+	<!-- the next line is where the Big yellow skicky note pops up -->
+		<%= render 'layouts/overlayDiv' %>
 
-
-<!-- the next line is where the Big yellow skicky note pops up -->
-<%= render 'layouts/overlayDiv' %>
-
-<div class="row">
-	<div class="col-md-3 left_column">
+		<div class="row">
+			<div class="col-md-3 left_column">
 		<!-- this is a partal for the sticky notes on the fridge -->
-		<%= render 'layouts/fridgeNotes'%>	
-	</div>
-	<div class="col-md-9">
-		<div class="container">
-			<%= yield %>
+				<%= render 'layouts/fridgeNotes'%>	
+			</div>
+			<div class="col-md-9">
+		<!-- <div class="container"> -->
+				<%= yield %>
+		<!-- </div> -->
+			</div>
+			<div class="footer">
+				<p>
+				Wedo - Lifes To Do List App 
+				</p>
+			</div>
 		</div>
-	</div>
-</div>
-
-<div class="footer">
-	<p>
-		Wedo - Lifes To Do List App 
-	</p>
-</div>
-
-<% end %>
+	<% end %>
 </body>
 </html>
